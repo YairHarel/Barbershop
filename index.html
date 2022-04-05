@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbershop</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="icon" href="https://github.com/YairHarel/All/blob/main/images/barber-shop-logo-png.png?raw=true">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    .section1,
+    .section2,
+    .section3 {
+        width: 100vw;
+        /* Hide horizontal scrollbar */
+        overflow-x: hidden;
+    }
+
+    .top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 10;
+        border: none;
+        outline: none;
+        width: 70px;
+        height: 70px;
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/arrow%20icon.png?raw=true);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        transition: .4s ease-in-out;
+    }
+
+    .section1 {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/first_background.jpg?raw=true);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.4s;
+    }
+
+    header {
+        padding-left: 50px;
+        display: flex;
+        height: 100px;
+        line-height: 30px;
+    }
+
+    header .logo {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/header_logo.png?raw=true);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100px;
+        height: 100px;
+        z-index: 5;
+        mix-blend-mode: darken;
+    }
+
+    header h2 {
+        z-index: 5;
+        padding-left: 5px;
+        padding-top: 15px;
+        font-size: 25px;
+        font-weight: 700;
+        color: rgb(182 112 86);
+        transition: all 0.7s ease-in;
+    }
+
+    header h2 span {
+        padding-left: 15px;
+        color: rgb(166 83 63);
+        transition: all 0.7s ease-in;
+    }
+
+    .space {
+        flex: 65%;
+    }
+
+    .menuBtn {
+        flex: 15%;
+        background: transparent;
+        color: rgb(166 83 63);
+        font-size: 35px;
+        font-weight: 700;
+        border: none;
+        transition: 0.6s linear;
+    }
+
+    .menuBtn:hover {
+        cursor: pointer;
+        color: #858585;
+    }
+
+    .dropMenu {
+        list-style: none;
+        text-align: center;
+        top: 0;
+        padding-top: 80px;
+        height: 100vh;
+        width: 100vw;
+        line-height: 90px;
+        display: none;
+        transition: all 0.6s ease-in;
+    }
+
+    .dropMenu li {
+        font-size: 35px;
+        font-weight: 700;
+        color: #fff;
+        transition: 0.2s ease;
+    }
+
+    .dropMenu li:hover {
+        cursor: pointer;
+        color: rgb(214, 214, 214);
+        font-size: 33px;
+    }
+
+    .orderBtn {
+        color: white;
+        font-size: 25px;
+        border: 5px solid rgb(166, 83, 63, 0.5);
+        border-radius: 15px;
+        width: 300px;
+        height: 100px;
+        margin: auto;
+        animation-name: orderBtn;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        transition: 1s;
+    }
+
+    @keyframes orderBtn {
+        0% {
+            background: rgb(182, 112, 86, 0.8);
+            border: 5px solid rgb(166, 83, 63, 0.5);
+        }
+
+        50% {
+            background: rgb(166, 83, 63, 1);
+            border: 5px solid rgb(182, 112, 86, 0.8);
+
+        }
+
+        100% {
+            background: rgb(182, 112, 86, 0.8);
+            border: 5px solid rgb(166, 83, 63, 0.5);
+
+        }
+    }
+
+    .orderBtn:hover {
+        cursor: pointer;
+        background: rgb(166 83 63);
+        border: 5px solid rgb(155, 150, 150);
+        text-decoration: none;
+        animation: none;
+    }
+
+    .section2 {
+        padding-top: 50px;
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/second_background.jpg?raw=true);
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+        height: 100%;
+    }
+
+    .section2 .description {
+        position: relative;
+        display: flex;
+        width: 100%;
+        margin: 150px auto 150px auto;
+    }
+
+    .section2 .description>img {
+        position: relative;
+        margin-top: 100px;
+        left: 250px;
+        height: 500px;
+        width: 600px;
+        border-radius: 15px;
+        border: 2px solid yellow;
+    }
+
+    .section2 .description .text {
+        z-index: 2;
+        margin-top: 0px;
+        margin-left: 300px;
+        background-color: rgb(60 58 59);
+        width: 400px;
+        color: #fff;
+        font-size: 20px;
+        padding: 50px;
+        border-radius: 15px;
+        border: 2px solid firebrick;
+    }
+
+    .section2 .description .text img {
+        position: relative;
+        border: 1px green solid;
+        width: 300px;
+        margin: 0 auto;
+        border: 5px solid rgb(166, 83, 63, 0.5);
+        border-radius: 15px;
+    }
+
+    .section2 .description .text text {
+        direction: rtl;
+    }
+
+    .section2 .saveAppointment {
+        font-family: sans-serif;
+        text-align: center;
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/logo.jpg?raw=true);
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .4);
+        background-position: center;
+        border-radius: 50%;
+        line-height: 45px;
+        transition: 1s ease-in;
+        padding-top: 100px;
+        font-weight: 900;
+        color: rgb(255, 255, 255);
+        margin: 0 auto;
+        width: 690px;
+        height: 690px;
+        transform: scale(1, 1);
+    }
+
+    .section2 .saveAppointment input,
+    .subSet,
+    select,
+    option {
+        color: #000;
+        width: 250px;
+        height: 50px;
+        margin: 30px;
+        font-size: 20px;
+        font-weight: 900;
+        text-align: center;
+        border: 3px solid rgb(182, 112, 86);
+        transition: 0.3s ease;
+    }
+
+    .section2 .saveAppointment .subSet {
+        width: 150px;
+        border: 2px solid rgb(180, 86, 52);
+        border-radius: 55px;
+    }
+
+    .section2 .saveAppointment .subSet:hover {
+        cursor: pointer;
+        border: 3px solid rgb(182, 112, 86);
+        background: rgb(78, 78, 78);
+        color: #fff;
+    }
+
+    .section3 {
+        padding: 100px 0 100px 0;
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/second_background.jpg?raw=true);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+    }
+
+    .container {
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.75);
+        border: 4px solid rgba(0, 0, 0, 0.815);
+        border-radius: 15px;
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 350px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        text-shadow: 2px 2px 0 #bcbcbc, 2px 3px 0 #9c9c9c;
+    }
+
+    .section3 .container h2 {
+        direction: rtl;
+        margin-top: 35px;
+        flex: 30%;
+        overflow-wrap: break-word;
+    }
+
+    .section3 .container img:nth-child(1) {
+        margin: 20px;
+        border: 4px solid gray;
+        border-radius: 15px;
+        width: 600px;
+        height: 700px;
+    }
+
+
+    .section3 .container img:nth-child(3) {
+        border: 4px solid #67928bf1;
+        border-radius: 15px;
+        width: 400px;
+    }
+
+    .section3 .container img:nth-child(4) {
+        border: 4px solid rgb(182, 112, 86);
+        border-radius: 15px;
+        width: 450px;
+    }
+
+    .section3 .container img {
+        transition: all 0.6s ease-in;
+    }
+
+    .section3 .container img:hover {
+        transform: scale(1.02, 1.03);
+    }
+
+    .cancelAppointment {
+        font-family: 'IBM Plex Sans Hebrew', sans-serif;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 150px;
+        width: 550px;
+        height: 300px;
+        color: #fff;
+        text-shadow: 2px 2px 0 #000000, 2px 3px 0 #000000;
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/logo.jpg?raw=true);
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+        border: 3px solid silver;
+        background-position: center center;
+        border-radius: 50px;
+        line-height: 45px;
+        transition: 1s ease-in;
+
+    }
+
+    .cancelAppointment:hover {
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+        transform: scale(0.99, 0.99);
+    }
+
+    .cancelAppointment h2 {
+        margin-top: 20px;
+    }
+
+    .cancelAppointment input,
+    .cancelAppointment .subCnl {
+        width: 200px;
+        margin: 20px;
+        font-size: 23px;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+        text-align: center;
+        border: 3px solid rgb(182, 112, 86);
+        transition: 0.3s ease;
+    }
+
+    .cancelAppointment .subCnl {
+        width: 150px;
+        border: 2px solid rgb(180, 86, 52);
+        border-radius: 55px;
+    }
+
+    .cancelAppointment .subCnl:hover {
+        cursor: pointer;
+        border: 3px solid rgb(182, 112, 86);
+        background: rgb(78, 78, 78);
+        color: #fff;
+    }
+
+    .gps {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/forth_background.jpg?raw=true);
+        background-position: center;
+        width: 500px;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 100px;
+        border-radius: 20px;
+        border: white 5px solid;
+        transition: .7s ease-in-out;
+    }
+
+    .gps:hover {
+        border: gray 5px solid;
+        transform: scale(0.99, 0.99);
+    }
+
+    .gps .icons {
+        display: flex;
+    }
+
+    .gps .icons img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .gps a {
+        flex: 100%;
+        text-decoration: none;
+        margin: 45px
+    }
+
+    .gps a:hover {
+        cursor: auto
+    }
+
+    .gps .icons a {
+        text-decoration: none;
+        transition: .5s;
+    }
+
+    .gps .icons a:hover {
+        cursor: pointer;
+        transform: scale(1.2, 1.2);
+    }
+
+    .gps a h1 {
+        font-family: "Fira Mono", "Andale Mono", "Consolas", monospace;
+        color: #000;
+        margin: 0 auto;
+        width: 195px;
+        font-weight: 900;
+        text-shadow: 2px 2px 0 #bcbcbc, 2px 3px 0 #9c9c9c;
+        transition: 0.9s;
+    }
+
+    .gps a h1:hover {
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 0 #000000, 2px 3px 0 #000000;
+    }
+
+    footer {
+        min-height: 80px;
+        padding: 10px;
+        background-image: linear-gradient(rgb(197, 110, 78), rgb(117, 117, 117));
+        color: #4b4c4d;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-content: space-around
+    }
+
+    footer a:hover {
+        transition: .7s;
+        color: rgb(148, 255, 172);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    footer .social {
+        flex: 100%;
+        text-align: center;
+        padding-bottom: 25px;
+    }
+
+    footer .social>a {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+    footer a:hover {
+        transition: .7s;
+        color: rgb(148, 255, 172);
+        cursor: pointer;
+
+    }
+
+    footer .list-inline {
+        flex: 100%;
+        margin: 0 auto;
+    }
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    footer li {
+        padding: 0 10px;
+        transition: .7s;
+    }
+
+    footer li:hover {
+        cursor: pointer;
+        color: #FFF;
+
+    }
+
+    footer .copyright {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        color: #aaa;
+        margin-bottom: 0;
+    }
+
+    footer .list-inline li a {
+        color: #4b4c4d;
+        text-decoration: none;
+    }
+
+    footer .list-inline li a:hover {
+        color: #fff;
+    }
+
+
+    @media only screen and (max-width: 1650px) {
+
+        .section3 .container {
+            justify-content: space-around;
+        }
+
+        .section3 .container h2 {
+            flex: 20%;
+        }
+
+        .section3 .container img:nth-child(1) {
+            width: 450px;
+            height: 550px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 400px;
+        }
+    }
+
+    @media only screen and (max-width: 1500px) {
+
+        .section3 .container {
+            width: 75%;
+        }
+
+
+        .section3 .container h2 {
+            flex: 15%;
+            font-size: 30px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            width: 550px;
+            height: 550px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 450px;
+        }
+    }
+
+    @media only screen and (max-width: 1300px) {
+        .section2 .description>img {
+            left: 100px;
+            height: 450px;
+            width: 500px;
+        }
+
+        .section2 .description .text {
+            margin-left: 250px;
+        }
+
+        .section3 .container {
+            width: 80%;
+        }
+
+
+        .section3 .container h2 {
+            flex: 15%;
+            font-size: 26px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            width: 520px;
+            height: 550px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 420px;
+        }
+    }
+
+    @media only screen and (max-width: 1150px) {
+        .section2 .description>img {
+            left: 50px;
+            height: 450px;
+            width: 500px;
+        }
+
+        .section2 .description .text {
+            margin-left: 200px;
+        }
+
+        .section3 .container {
+            justify-content: space-evenly;
+            width: 85%;
+        }
+
+
+        .section3 .container h2 {
+            flex: 15%;
+            font-size: 23px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            width: 500px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 350px;
+        }
+    }
+
+    @media only screen and (max-width:1000px) {
+
+        body,
+        .section1,
+        .section2,
+        .section3 {
+            overflow-x: hidden;
+        }
+
+        header {
+            padding-left: 20px;
+        }
+
+        .section2 .description>img {
+            position: relative;
+            margin-top: 100px;
+            right: 30px;
+            height: 450px;
+            width: 400px;
+            border-radius: 15px;
+            border: 2px solid yellow;
+        }
+
+        .section2 .description .text {
+            width: 350px;
+            margin-left: 50px;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        .section2 .saveAppointment {
+            line-height: 20px;
+            padding-top: 70px;
+            width: 500px;
+            height: 500px;
+        }
+
+        .section2 .saveAppointment h1,
+        h2,
+        h3 {
+            font-size: 25px;
+        }
+
+        .section2 .saveAppointment input,
+        .subSet,
+        select,
+        option {
+            width: 200px;
+            height: 40px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .section3 .container {
+            margin-top: 150px;
+            justify-content: space-evenly;
+            width: 85%;
+        }
+
+        .section3 .container h2 {
+            flex: 15%;
+            font-size: 20px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            width: 380px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 300px;
+        }
+    }
+
+    @media only screen and (max-width:800px) {
+        .section3 .container {
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section2 .description>img {
+            left: 40px;
+            width: 350px;
+            height: 400px;
+        }
+
+        .section2 .description .text {
+            width: 250px;
+            font-size: 15px;
+            padding: 10px;
+            margin: 60px
+        }
+
+        .section2 .description .text img {
+            width: 200px;
+        }
+
+        .section3 .container h2 {
+            flex: 15%;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            margin: 10px;
+            width: 380px;
+            height: 400px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 250px;
+            margin: 10px;
+        }
+    }
+
+    @media only screen and (max-width:650px) {
+
+        header {
+            padding-left: 10px;
+            background: rgba(104, 145, 139, 0.7);
+        }
+
+        header h2 {
+            padding-top: 10px;
+            font-size: 20px;
+            color: rgb(49, 49, 49);
+        }
+
+        header h2 span {
+            font-size: 20px;
+            color: #000;
+        }
+
+        .space {
+            flex: 35%;
+        }
+
+        .menuBtn {
+            color: rgb(49, 49, 49);
+            font-size: 25px;
+            padding-right: 10px;
+        }
+
+        .orderBtn {
+            font-size: 20px;
+            width: 200px;
+            height: 60px;
+        }
+
+        .top {
+            right: 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .section2 .description>img {
+            left: 0px;
+            width: 300px;
+            height: 350px;
+        }
+
+        .section2 .description .text {
+            font-size: 13px;
+        }
+
+        .section3 .container {
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section3 .container h2 {
+            flex: 15%;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            margin: 10px;
+            width: 320px;
+            height: 400px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 200px;
+            margin: 10px;
+        }
+
+
+        .cancelAppointment {
+            margin-top: 150px;
+            width: 450px;
+            height: 250px;
+        }
+
+        .gps {
+            width: 450px;
+            height: 250px;
+        }
+
+        .gps .icons a {
+            margin: 30px;
+        }
+
+        .gps .icons img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    @media only screen and (max-width:550px) {
+        .section2 .description>img {
+            left: 0px;
+            width: 220px;
+            height: 280px;
+        }
+
+        .section2 .description .text {
+            font-size: 13px;
+            width: 200px;
+        }
+
+        .section2 .description .text img {
+            width: 150px;
+        }
+
+        .section2 .saveAppointment {
+            line-height: 20px;
+            padding-top: 25px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .section2 .saveAppointment input,
+        .subSet,
+        select,
+        option {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .section2 .saveAppointment h1,
+        h2,
+        h3 {
+            font-size: 20px;
+
+        }
+
+        .section3 .container {
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section3 .container h2 {
+            flex: 15%;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            margin: 10px;
+            width: 250px;
+            height: 300px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .cancelAppointment {
+            margin-top: 150px;
+            line-height: 25px;
+            width: 400px;
+            height: 220px;
+        }
+
+        .cancelAppointment h2 {
+            font-size: 25px;
+        }
+
+        .gps {
+            width: 400px;
+            height: 200px;
+        }
+
+        .gps .icons a {
+            margin: 25px;
+        }
+
+        .gps .icons img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    @media only screen and (max-width:450px) {
+        .section2 .description {
+            margin: 50px auto 50px auto;
+        }
+
+        .section2 .description>img {
+            width: 200px;
+            height: 250px;
+        }
+
+        .section2 .description .text {
+            font-size: 10px;
+            text-shadow: none;
+            width: 150px;
+        }
+
+        .section2 .description .text img {
+            width: 110px;
+        }
+
+        .section2 .saveAppointment {
+            width: 300px;
+            height: 300px;
+        }
+
+        .section2 .saveAppointment input,
+        .subSet,
+        select,
+        option {
+            width: 110px;
+            height: 25px;
+            margin: 5px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .section2 .saveAppointment h1,
+        h2,
+        h3 {
+            font-size: 17px;
+        }
+
+        .section3 .container {
+            margin: 0px auto 0px auto;
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section3 .container h2 {
+            flex: 15%;
+            margin-top: 10px;
+            font-size: 10px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            margin: 5px;
+            width: 150px;
+            height: 200px;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 150px;
+            margin: 5px;
+        }
+    }
+
+
+    @media only screen and (max-width:400px) {
+
+        .section2 .description>img {
+            width: 200px;
+            height: 220px;
+        }
+
+        .section2 .description .text {
+            margin: 20px;
+            padding: 5px;
+            width: 120px;
+            font-size: 9px;
+        }
+
+        .section2 .description .text img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .section2 .saveAppointment {
+            width: 300px;
+            height: 300px;
+        }
+
+        .section2 .saveAppointment input,
+        .subSet,
+        select,
+        option {
+            width: 110px;
+            height: 25px;
+            margin: 5px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .section2 .saveAppointment h1,
+        h2,
+        h3 {
+            font-size: 17px;
+
+        }
+
+        .section3 .container {
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section3 .container h2 {
+            flex: 100%;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .section3 .container img:nth-child(1) {
+            margin: 5px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .section3 .container img:nth-child(3),
+        .section3 .container img:nth-child(4) {
+            width: 40%;
+            margin: 5px;
+        }
+
+        .section3 .cancelAppointment {
+            margin-top: 150px;
+            line-height: 25px;
+            width: 300px;
+            height: 200px;
+        }
+
+        .section3 .cancelAppointment h2 {
+            font-size: 18px;
+        }
+
+        .section3 .gps {
+            width: 300px;
+            height: 200px;
+        }
+
+        .section3 .gps .icons a {
+            margin: 25px;
+        }
+
+        .section3 .gps .icons img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .section3 .gps h1 {
+            font-size: 25px;
+        }
+    }
+
+
+    @media only screen and (max-width:350px) {
+
+        .section2 .description>img {
+            width: 150px;
+            height: 200px;
+            left: 10px;
+        }
+
+        .section2 .description .text {
+            padding: 5px;
+            width: 120px;
+            font-size: 9px;
+        }
+
+        .section2 .description .text img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .section2 .saveAppointment {
+            width: 250px;
+            height: 250px;
+            padding: 10px 0 0 0;
+        }
+
+        .section2 .saveAppointment input,
+        .subSet,
+        select,
+        option {
+            width: 100px;
+            height: 20px;
+            margin: 5px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .section2 .saveAppointment h1,
+        h2,
+        h3 {
+            font-size: 15px;
+        }
+
+        .section3 .container {
+            padding: 10px;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        .section3 .container h2 {
+            flex: 100%;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .section3 .cancelAppointment {
+            margin-top: 100px;
+            line-height: 25px;
+            width: 250px;
+            height: 200px;
+        }
+
+        .section3 .cancelAppointment h2 {
+            font-size: 15px;
+        }
+
+        .section3 .gps {
+            width: 250px;
+            height: 200px;
+        }
+
+        .section3 .gps .icons a {
+            margin: 20px;
+        }
+    }
+</style>
+
+<body>
+    <button onclick="scrollToTop()" class="top" title="Go to top"></button>
+    <div class="section1">
+        <header>
+            <div class="logo"> </div>
+            <h2>Yackov's <br> <span>Barbershop</span> </h2>
+            <div class="space"></div>
+            <button data-aos-duration="2000" data-aos-delay="9000" data-aos-easing="ease-in" class="menuBtn"
+                onclick="menuChange()">תפריט</button>
+
+        </header>
+        <ul class="dropMenu">
+            <li onclick="menuChange()">בית</li>
+            <li onclick="Scrolling()" id="description"><a class="menuBtn" href="#"></a> תיאור המספרה</li>
+            <li onclick="Scrolling()" id="saveAppointment"><a class="menuBtn" href="#"></a> הזמנת תור</li>
+            <li onclick="Scrolling()" id="cancelAppointment"><a class="menuBtn" href="#"></a> ביטול תור</li>
+            <li onclick="Scrolling()" id="gps"><a class="menuBtn" href="#"></a> ניווט</li>
+            <li onclick="Scrolling()" id="footer"><a class="menuBtn" href="#"></a> צרו איתנו קשר</li>
+        </ul>
+        <button onclick="Scrolling()" id="saveAppointment" class="orderBtn"> להזמנת תור</button>
+    </div>
+    <div class="section2">
+        <div class="description">
+            <img src="https://github.com/YairHarel/All/blob/main/images/barbershop_img.jpg?raw=true" alt="Barbershop">
+            <div class="text">
+                <img src="https://github.com/YairHarel/All/blob/main/images/logo.jpg?raw=true" alt="logo">
+
+                המספרה של יעקב נפתחה בשנת 2016 על ידי יעקב הספר. יעקב בנה ושיפץ את המספרה במיטב כספו. לאט לאט השמועה
+                שספר
+                חדש הגיע לשכונת הר-נוף התפשטה מהר ועוד ועוד לקוחות הגיעו להסתפר. כולם התרשמו מאוד מהשירות החם והאדיב
+                שיעקב מעניק ללקוחות ושמו הלך לפניו! כיום המספרה מונה חלק גדול מתושבי הר-נוף ושאר השכונות בירושלים וכולם
+                באים לקבל את השירות של המספרה הנודעת
+            </div>
+        </div>
+        <div class="saveAppointment">
+            <h1 style="direction: rtl;">בחר את התאריך והשעה הרצויים</h1>
+            <h1>זמני המספרה הם בין 9 בבוקר ל 7 בערב </h1>
+            <form action="/save" method="POST">
+                <input onchange="setTurns()" type="date" name="date" class="date" placeholder="" min="" max="" required>
+                <select class="time" name="time">
+                </select>
+                <input type="name" name="name" class="name" placeholder="משה כהן" autocomplete="on" required>
+                <input type="tel" name="phone" class="phone" placeholder="053-123-4567" autocomplete="on"
+                    pattern="([0-9]{10})|([0-9]{3}-[0-9]{3}-[0-9]{4})" required><br>
+                <input type="submit" value="הזמן תור" class="subSet" />
+            </form>
+        </div>
+    </div>
+    <div class="section3">
+        <div class="container">
+            <img src="https://github.com/YairHarel/All/blob/main/images/Yackov.jpg?raw=true" alt="Yackov">
+            <h2>יעקב הינו ספר צעיר אך מלא ניסיון שפתח מספרה משלו מיד לאחר חתונתו.
+                יעקב נותן ללקוחותיו את מלא תשומת הלב ואוהב להעניק להם שירות בלתי נשכח.
+                הלקוחות שלו מייחסים אותו כחברם הטוב ביותר.
+                יעקב משרת את לקוחותיו בזריזות ומקצועיות!
+            </h2>
+            <img src="https://github.com/YairHarel/All/blob/main/images/haircut.jpg?raw=true" alt="haircut">
+            <img src="https://github.com/YairHarel/All/blob/main/images/barbers.jpg?raw=true" alt="barders">
+        </div>
+        <div class="cancelAppointment">
+            <form action="/cancel" method="post">
+                <h2 style="direction: rtl;"> הכנס את מספר הטלפון של בעל התור על מנת לבטל את התור </h2>
+                <input type="tel" name="phoneCancel" class="phone" placeholder="053-123-4567"
+                    pattern="([0-9]{10})|([0-9]{3}-[0-9]{3}-[0-9]{4})" required><br>
+                <input type="submit" value="ביטול תור" class="subCnl" />
+            </form>
+        </div>
+        <div class="gps">
+            <div class="icons">
+                <a href="https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D/%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D/%D7%99%D7%A2%D7%A7%D7%91-%D7%94%D7%A1%D7%A4%D7%A8?to=place.ChIJ9bObW6nXAhUR0XtuvIfXnNg"
+                    target="_blank"> <img
+                        src="https://github.com/YairHarel/All/blob/main/images/waze_icon2.png?raw=true"
+                        alt="waze icon2"></a>
+                <a href="https://b.gett.com/Easy?dropoff_latitude=31.782503&amp;dropoff_longitude=35.175292"
+                    target="_blank"><img
+                        src="https://github.com/YairHarel/All/blob/main/images/get_taxi_icon.png?raw=true"
+                        alt="get taxi icon"></a>
+                <a href="https://maps.google.com/maps/?daddr=31.782503,35.175292&amp;amp;ll=32.059925,34.785126"
+                    target="_blank"> <img src="https://github.com/YairHarel/All/blob/main/images/map_icon2.png?raw=true"
+                        alt="map icon"></a>
+                <a href="https://moovitapp.com/israel-1/poi/%D7%94%D7%A8%D7%91%20%D7%A9%D7%9E%D7%A2%D7%95%D7%9F%20%D7%90%D7%92%D7%A1%D7%99%2027/t/he?tll=31.782748_35.175165&customerId=4908&ref=5"
+                    target="_blank"><img
+                        src="https://github.com/YairHarel/All/blob/main/images/moovit_icon.png?raw=true"
+                        alt="moovit icon"></a>
+            </div>
+            <a href="https://www.waze.com/live-map/directions?orig_lat=32.059925orig_lon%3D34.785126navigate%3Dyes&to=ll.31.782503%2C35.175292"
+                target="_blank">
+                <h1>ניווט למספרה</h1>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="social"><a href="https://wa.me/message/IMBS4DD6BMIFH1"><i class="icon ion-social-whatsapp"
+                    title="Contact us on Whatsapp"></i></a>
+            <a href="tel: ⁦+972 54-806-3227⁩"><i class="icon ion-iphone" title="Call us"></i></a>
+            <a href="https://wa.me/c/972548063227"><i class="icon ion-scissors"
+                    title="Browse our Catelog on Whatsapp"></i></a>
+            <a href="mailto:6644022@gmail.com"><i class="icon ion-email-unread" title="Send us email"></i></a>
+        </div>
+        <ul class="list-inline">
+            <li class="list-footer"> <a href="tel: ⁦+972 54-806-3227⁩"> שירות לקוחות</a></li>
+            <li class="list-footer" onclick="scrollToTop()">עמוד הבית</li>
+            <li class="list-footer">תנאים</li>
+            <li class="list-footer">מדיניות האתר</li>
+        </ul>
+        <a href="tel: 0532477701" class="copyright">Yair Harel <i class="icon ion-iphone" title="Call us"></i> ©
+            2022</a>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="server.js"></script>
+    <script>
+        window.onload = () => {
+            setDate();
+            setTurns();
+        };
+        let firstTurns = true;
+        let menu = true;
+        let date = document.querySelector(".date");
+
+        date.addEventListener("input", () => {
+            fetch('')
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Success:', result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        const menuChange = () => {
+
+            if (menu) {
+                document.querySelector("h2").style.color = "white";
+                document.querySelector("h2").querySelector("span").style.color = "white";
+                document.querySelector(".orderBtn").style.display = "none";
+                document.querySelector(".section1").style.boxShadow = "inset 0 0 0 1000px rgba(0, 0, 0, .7)";
+                document.querySelector(".dropMenu").style.display = "block";
+                document.querySelector(".menuBtn").innerHTML = "חזרה";
+                document.querySelector(".menuBtn").style.color = "#fff";
+                menu = false;
+            }
+            else {
+                if (screen.width <= 650) {
+                    document.querySelector("h2").style.color = "rgb(49, 49, 49)";
+                    document.querySelector("h2").querySelector("span").style.color = "#000";
+                    document.querySelector(".menuBtn").style.color = "rgb(49, 49, 49)";
+                }
+                else {
+                    document.querySelector("h2").style.color = "rgb(182 112 86)";
+                    document.querySelector("h2").querySelector("span").style.color = "rgb(166 83 63)";
+                    document.querySelector(".menuBtn").style.color = "rgb(166 83 63)";
+                }
+                document.querySelector(".section1").style.boxShadow = "none";
+                document.querySelector(".menuBtn").innerHTML = "תפריט";
+                document.querySelector(".orderBtn").style.display = "block";
+                document.querySelector(".dropMenu").style.display = "none";
+                menu = true;
+            }
+
+        };
+        const setDate = () => {
+            let today = new Date();
+            let date2;
+            let date = today.getFullYear() + '-';
+            date2 = date;
+            if (today.getMonth() < 10) {
+                if (today.getMonth() == 10)
+                    date2 += (today.getMonth() + 2) + '-';
+                else
+                    date2 += '0' + (today.getMonth() + 1) + '-';
+
+                date += '0' + (today.getMonth() + 1) + '-';
+            }
+            else
+                date += (today.getMonth() + 1) + '-';
+            if (today.getDate() < 10)
+                date += '0' + today.getDate();
+            else
+                date += today.getDate();
+            if (today.getDate() + 10 > 30)
+                date2 += '0' + (today.getDate() + 10) % 10;
+            else date2 += today.getDate() + 7;
+            document.querySelector(".date").value = date;
+            document.querySelector(".date").max = date2;
+            document.querySelector(".date").min = date;
+        };
+
+        const setTurns = async () => {
+            let date = document.querySelector(".date");
+            console.log(date.value);
+            let data = await fetchData(`http://localhost:3000/Turns?date=${date.value}`).catch(error => {
+                console.error('Error:', error);
+            });
+            data = Object.entries(data);
+            console.log("This is new Data: ", data);
+            let time = document.querySelector(".time");
+            if (firstTurns) {
+                data[2][1].forEach(x => {
+                    let opt = document.createElement("option");
+                    opt.className = "opt";
+                    opt.value = x;
+                    opt.innerHTML = x;
+                    time.appendChild(opt);
+                });
+                firstTurns = false;
+            } else {
+                let options = document.querySelectorAll(".opt");
+                options.forEach(i => {
+                    i.remove();
+                });
+                data[2][1].forEach(x => {
+                    let opt = document.createElement("option");
+                    opt.className = "opt";
+                    opt.value = x;
+                    opt.innerHTML = x;
+                    time.appendChild(opt);
+                });
+            }
+        };
+
+        const fetchData = async (url) => {
+            console.log(url);
+            let response = await fetch(url);
+            return await response.json();
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!menu && window.pageYOffset > 300)
+                menuChange();
+            const scrolled = window.pageYOffset;
+            document.querySelector(".description").children[0].style.transform = `translate(${0.1 * (scrolled * 0.2)}%)`;
+            document.querySelector(".description").children[1].style.transform = `translate(${-0.2 * (scrolled * 0.1)}%)`;
+        });
+
+        const Scrolling = () => {
+            if (!menu) {
+                menuChange();
+            }
+            let element = event.target.id;
+            if (event.target.id == "cancelAppointment") {
+                let scroll = document.querySelector("." + element).offsetTop;
+                window.scrollTo({ top: scroll - 200, behavior: 'smooth' });
+            }
+            else {
+                let scroll = document.querySelector("." + element).offsetTop;
+                window.scrollTo({ top: scroll - 100, behavior: 'smooth' });
+            }
+        };
+
+        //Get the button
+        var mybutton = document.querySelector(".top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = () => { scrollFunction(); };
+
+        const scrollFunction = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // When the user clicks on the button, scroll to the top of the document
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+</body>
+
+</html>

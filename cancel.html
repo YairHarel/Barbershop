@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cancel Appointment</title>
+    <link rel="icon" href="https://github.com/YairHarel/All/blob/main/images/barber-shop-logo-png.png?raw=true">
+</head>
+<style>
+    body {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/third_background.jpg?raw=true);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .main {
+        width: 700px;
+        margin: 0 auto;
+        color: #FFF;
+        font-family: Inter;
+        font-style: italic;
+        text-align: center;
+        direction: rtl;
+    }
+
+    .main h1 {
+        font-size: 55px;
+    }
+
+    .main select {
+        height: 40px;
+        width: 270px;
+        font-size: 30px;
+    }
+
+    .main option {
+
+        font-size: 30px;
+    }
+
+    .main input[type="submit"] {
+        margin: 20px;
+        font-size: 35px;
+        border-radius: 10px;
+        border: 3px rgb(95, 192, 230) solid;
+        transition: .3s linear;
+    }
+
+    .main input[type="submit"]:hover {
+        background-color: rgb(166 83 63);
+        color: rgb(95, 192, 230);
+        transform: scale(0.95, 0.95);
+    }
+
+
+    .main h3 {
+        font-size: 45px;
+    }
+
+    .card {
+        transition: 1s ease-in;
+        margin: 0 auto;
+        width: 250px;
+        height: 250px;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        perspective: 600px;
+    }
+
+    .cardFace {
+        position: absolute;
+        border: goldenrod 2px solid;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+    }
+
+    .card .front {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/logo.jpg?raw=true);
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+    }
+
+    .card .back {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/barbershop_pole.gif?raw=true);
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+        border: black 2px solid;
+        transform: rotateY(180deg);
+    }
+
+    .card {
+        transform-origin: center right;
+    }
+
+    .card.flipped {
+        transform: rotateY(180deg);
+        transform: translateX(-100%) rotateY(-180deg);
+    }
+</style>
+
+<body>
+    <div class="main">
+        <form action="/canceled" method="post">
+            <h1>בחר את התורים שברצונך לבטל</h1>
+            <select name="appointment"></select>
+            <br>
+            <input type="submit" value="ביטול תור" class="subCnl" />
+        </form>
+        <h3>המשך יום נעים!</h3>
+    </div>
+    <div class="card">
+        <div class="cardFace front"></div>
+        <div class="cardFace back"> </div>
+    </div>
+    <script>
+        var card = document.querySelector('.card');
+        card.addEventListener('click', function () {
+            card.classList.toggle('flipped');
+        });
+
+        const fetchData = async (url) => {
+            console.log(url);
+            let response = await fetch(url);
+            return await response.json();
+        };
+        const setTurns = async () => {
+            let data = await fetchData(`http://localhost:3000/cancel/data`).catch(error => {
+                console.error('Error:', error);
+            });
+            console.log(data);
+            if (data.length > 1) {
+                console.log(1);
+                let opt = document.createElement("option");
+                opt.innerHTML = 'בחר תור';
+                opt.value = 'first';
+                document.querySelector("select").appendChild(opt);
+            }
+            data.forEach((app) => {
+                console.log(2);
+                let opt = document.createElement("option");
+                opt.innerHTML = `${app.date}, ${app.time}`;
+                opt.value = `${app.date}, ${app.time}`;
+                document.querySelector("select").appendChild(opt);
+            });
+            if (data.length > 1) {
+                console.log(3);
+                let opt = document.createElement("option");
+                opt.innerHTML = 'בטל הכל';
+                opt.value = 'all';
+                document.querySelector("select").appendChild(opt);
+            }
+            if (data.length < 1) {
+                let opt = document.createElement("option");
+                opt.innerHTML = 'אין תורים';
+                opt.value = 'none';
+                document.querySelector("select").appendChild(opt);
+            }
+        }
+        setTurns();
+    </script>
+</body>
+
+</html>

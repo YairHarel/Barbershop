@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Appointment canceled</title>
+    <link rel="icon" href="https://github.com/YairHarel/All/blob/main/images/barber-shop-logo-png.png?raw=true">
+</head>
+<style>
+    body {
+        background-image: url(https://fortcollinsbarber.com/wp-content/uploads/2021/03/background.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .main {
+        width: 700px;
+        margin: 0 auto;
+        color: #FFF;
+        font-family: Inter;
+        font-style: italic;
+        text-align: center;
+        direction: rtl;
+    }
+
+    .main h1 {
+        font-size: 55px;
+    }
+
+    .main h3 {
+        font-size: 40px;
+    }
+
+    .main input[type="submit"] {
+        margin: 10px;
+        font-size: 35px;
+        border-radius: 10px;
+        border: 3px rgb(95, 192, 230) solid;
+        transition: .3s linear;
+    }
+
+    .main input[type="submit"]:hover {
+        background-color: rgb(166 83 63);
+        color: rgb(95, 192, 230);
+        transform: scale(0.95, 0.95);
+    }
+
+    .card {
+        transition: 1s ease-in;
+        margin: 0 auto;
+        width: 250px;
+        height: 250px;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        perspective: 600px;
+    }
+
+
+    .cardFace {
+        position: absolute;
+        border: goldenrod 2px solid;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+    }
+
+    .card .front {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/logo.jpg?raw=true);
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+    }
+
+    .card .back {
+        background-image: radial-gradient(rgb(95, 95, 95), black);
+        padding: 20px;
+        border-radius: 50%;
+        text-align: center;
+        color: #FFF;
+        transform: rotateY(180deg);
+    }
+
+
+
+    .card .back h2,
+    h3 {
+        direction: rtl;
+        padding-top: 10px;
+    }
+
+    .card .back h2 {
+        padding-top: 30px;
+    }
+
+    .card {
+        transform-origin: center right;
+    }
+
+    .card.flipped {
+        transform: rotateY(180deg);
+        transform: translateX(-100%) rotateY(-180deg);
+    }
+</style>
+
+<body>
+    <div class="main">
+        <form action="/" method="get">
+            <h1 style="direction: rtl;">התור/ים שבחרת בוטלו בהצלחה!</h1>
+            <br>
+            <input type="submit" value="חזרה לדף הבית" class="subCnl" />
+        </form>
+        <h3>המשך יום נעים!</h3>
+    </div>
+    <div class="card">
+        <div class="cardFace front"></div>
+        <div class="cardFace back">
+            <h2>תודה שבחרתם יעקב!</h2>
+            <br>
+            <h3>נשמח לתת לכם שירות חם ואדיב</h3>
+        </div>
+    </div>
+    <script>
+        var card = document.querySelector('.card');
+        card.addEventListener('click', function () {
+            card.classList.toggle('flipped');
+        });
+    </script>
+</body>
+
+</html>

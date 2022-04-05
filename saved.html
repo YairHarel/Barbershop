@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment saved</title>
+    <link rel="icon" href="https://github.com/YairHarel/All/blob/main/images/barber-shop-logo-png.png?raw=true">
+</head>
+<style>
+    body {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/third_background.jpg?raw=true);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .main {
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 30px;
+        color: #FFF;
+        font-family: Inter;
+        font-style: italic;
+        text-align: center;
+        direction: rtl;
+    }
+
+    .main h2,
+    h3,
+    h4 {
+        direction: rtl;
+    }
+
+    .main h2 {
+
+        font-size: 45px;
+    }
+
+    .main h3 {
+        font-size: 35px;
+    }
+
+    .main h4 {
+        font-size: 30px;
+    }
+
+    .main input[type="submit"] {
+        margin: 10px;
+        font-size: 35px;
+        border-radius: 10px;
+        border: 3px rgb(95, 192, 230) solid;
+        transition: .3s linear;
+    }
+
+    .main input[type="submit"]:hover {
+        background-color: rgb(166 83 63);
+        color: rgb(95, 192, 230);
+        transform: scale(0.95, 0.95);
+    }
+
+    .gps {
+        background-image: url(https://github.com/YairHarel/All/blob/main/images/forth_background.jpg?raw=true);
+        background-position: center;
+        width: 500px;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 100px;
+        border-radius: 20px;
+        border: white 5px solid;
+        transition: 0.9s ease-in-out;
+    }
+
+    .gps:hover {
+        border: black 5px solid;
+        transform: scale(0.99, 0.99);
+    }
+
+    .gps .icons {
+        display: flex;
+    }
+
+    .gps .icons img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .gps a {
+        flex: 100%;
+        text-decoration: none;
+        margin: 45px
+    }
+
+    .gps a:hover {
+        cursor: auto
+    }
+
+    .gps .icons a {
+        text-decoration: none;
+    }
+
+    .gps .icons a:hover {
+        cursor: pointer;
+    }
+
+    .gps a h1 {
+        font-family: "Fira Mono", "Andale Mono", "Consolas", monospace;
+        color: #000;
+        margin: 0 auto;
+        width: 195px;
+        font-weight: 900;
+        text-shadow: 2px 2px 0 #bcbcbc, 2px 3px 0 #9c9c9c;
+        transition: 0.4s ease-in;
+    }
+
+    .gps a h1:hover {
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 0 #000000, 2px 3px 0 #000000;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <form action="/" method="get">
+            <h2>התור שלך נשמר בהצלחה!</h2>
+            <h3>
+                <%=save[0]%>
+            </h3>
+            <h3>
+                <%=save[1]%>
+            </h3>
+            <h4>מצפים לראותך!</h4>
+            <input type="submit" value="חזרה לדף הבית" class="subCnl" />
+        </form>
+    </div>
+    <div class="gps">
+        <div class="icons">
+            <a href="https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D/%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D/%D7%99%D7%A2%D7%A7%D7%91-%D7%94%D7%A1%D7%A4%D7%A8?to=place.ChIJ9bObW6nXAhUR0XtuvIfXnNg"
+                target="_blank"> <img src="https://github.com/YairHarel/All/blob/main/images/waze_icon2.png?raw=true"
+                    alt="waze icon2"></a>
+            <a href="https://b.gett.com/Easy?dropoff_latitude=31.782503&amp;dropoff_longitude=35.175292"
+                target="_blank"><img src="https://github.com/YairHarel/All/blob/main/images/get_taxi_icon.png?raw=true"
+                    alt="get taxi icon"></a>
+            <a href="https://maps.google.com/maps/?daddr=31.782503,35.175292&amp;amp;ll=32.059925,34.785126"
+                target="_blank"> <img src="https://github.com/YairHarel/All/blob/main/images/map_icon2.png?raw=true"
+                    alt="map icon"></a>
+            <a href="https://moovitapp.com/israel-1/poi/%D7%94%D7%A8%D7%91%20%D7%A9%D7%9E%D7%A2%D7%95%D7%9F%20%D7%90%D7%92%D7%A1%D7%99%2027/t/he?tll=31.782748_35.175165&customerId=4908&ref=5"
+                target="_blank"><img src="https://github.com/YairHarel/All/blob/main/images/moovit_icon.png?raw=true"
+                    alt="moovit icon"></a>
+        </div>
+        <a href="https://www.waze.com/live-map/directions?orig_lat=32.059925orig_lon%3D34.785126navigate%3Dyes&to=ll.31.782503%2C35.175292"
+            target="_blank">
+            <h1>ניווט למספרה</h1>
+        </a>
+    </div>
+    <script>
+        const fetchData = async (url) => {
+            console.log(url);
+            let response = await fetch(url);
+            return await response.json();
+        };
+        const setTurns = async () => {
+            let data = await fetchData(`http://localhost:3000/save/data`).catch(error => {
+                console.error('Error:', error);
+            });
+            console.log(data);
+            let h3 = document.querySelectorAll("h3");
+            h3[0].innerHTML = data[0];
+            h3[1].innerHTML = data[1]
+        }
+        setTurns();
+    </script>
+</body>
+
+</html>
